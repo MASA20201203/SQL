@@ -45,3 +45,11 @@ SELECT SUM(SUB.出金額) AS 出金額合計
           FROM 家計簿アーカイブ
          WHERE 日付 >= '2018-01-01'
            AND 日付 <= '2018-01-31') AS SUB
+
+-- 7-12 INSERT文で副問い合わせを利用する
+INSERT INTO 家計簿集計 (費目, 合計, 平均, 回数)
+SELECT 費目, SUM(出金額), AVG(出金額), 0
+  FROM 家計簿
+ WHERE 出金額 > 0
+ GROUP BY 費目
+
