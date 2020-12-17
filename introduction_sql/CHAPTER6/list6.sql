@@ -18,3 +18,7 @@ SELECT COUNT(*) AS 食費の行数
  --6-4 日付と出金額合計を取得するつもりのSELECT文
 SELECT 日付け, SUM(出金額) AS 出金額合計
   FROM 家計簿
+
+--6-5 NULLをゼロとして平均を求める
+SELECT AVG(COALESCE(出金額, 0)) AS 出金額の平均
+  FROM 家計簿
