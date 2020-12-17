@@ -23,5 +23,12 @@ SELECT TRIM(メールアドレス) AS メールアドレス,
   FROM 回答者
 
 -- 問題 5-3
+-- (1)
+-- UPDATE 受注
+--    SET 文字数 = LENGTH(TRIM(文字))
+UPDATE 受注
+   SET 文字数 = LENGTH(REPRACE(文字, '　', ' '))
 
+--(2)
+SELECT 受注日, 
 
