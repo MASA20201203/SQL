@@ -14,3 +14,7 @@ FROM 家計簿
 SELECT COUNT(*) AS 食費の行数
   FROM 家計簿
  WHERE 費目 = '食費'
+
+ --6-4 日付と出金額合計を取得するつもりのSELECT文
+SELECT 日付け, SUM(出金額) AS 出金額合計
+  FROM 家計簿
