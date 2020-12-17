@@ -9,3 +9,8 @@ SELECT
   MAX(出金額) AS 最も大きな散財,
   MIN(出金額) AS 最も少額の支払い
 FROM 家計簿
+
+--6-3 食費の行数を数える
+SELECT COUNT(*) AS 食費の行数
+  FROM 家計簿
+ WHERE 費目 = '食費'
