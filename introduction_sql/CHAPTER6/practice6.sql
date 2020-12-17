@@ -62,3 +62,8 @@ SELECT 日付 AS 障害対応が発生した日付, COUNT(*) AS 対応社員数
   FROM 入退室管理
  WHERE 事由区分 = '3'
  GROUP BY 日付
+
+-- 問題6-3
+2, 5,
+
+
