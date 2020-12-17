@@ -27,3 +27,9 @@ SELECT AVG(COALESCE(出金額, 0)) AS 出金額の平均
 SELECT 費目, SUM(出金額) AS 費目別の出金額合計
   FROM 家計簿
  GROUP BY 費目
+
+-- 6-9 集計結果で絞り込む
+SELECT 費目, SUM(出金額) AS 費目別の出金額合計
+  FROM 家計簿
+ GROUP BY 費目
+HAVING SUM(出金額) > 0
