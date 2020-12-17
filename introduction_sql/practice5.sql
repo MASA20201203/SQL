@@ -46,3 +46,7 @@ SELECT 受注日, 受注ID, 文字数,
   FROM 受注
 ORDER BY 受注日, 受注ID
 
+--(3)
+UPDATE 受注
+   SET 文字 = REPRACE(文字, ' ', '★')
+WHERE 受注ID = '113'
