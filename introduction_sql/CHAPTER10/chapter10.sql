@@ -20,3 +20,10 @@ CREATE TABLE 家計簿 (
   出金額    INTEGER       DEFAULT 0
 )
 
+-- 10-4 列の追加と削除
+ALTER TABLE 家計簿 ADD 関連日 DATE;
+
+ALTER TABLE 家計簿 DROP 関連日;
+
+--全件データ削除
+TRUNCATE TABLE 家計簿
