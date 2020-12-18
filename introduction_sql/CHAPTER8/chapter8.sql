@@ -31,3 +31,9 @@ SELECT 日付, 費目.名前, 費目.経費区分ID
          WHERE 経費区分ID = 1
        ) AS 費目
     ON 家計簿.費目ID = 費目.ID
+
+-- 8-10 自分自身と結合するSQL文
+SELECT A.日付, A.メモ, A.関連日付, B.メモ
+  FROM 家計簿 AS A
+LEFT JOIN 家計簿 AS B
+       ON A.関連日付 = B.日付
