@@ -1,0 +1,40 @@
+-- 問題10-1
+イ、ウ、キ
+
+-- 問題10-2
+CREATE TABLE 学部 (
+  ID      CHAR(1)         PRIMARY KEY,
+  名前    VARCHAR(20)     UNIQUE NOT NULL,
+  備考    VARCHAR(100)    DEFAULT '特になし' NOT NULL
+)
+
+-- 問題10-3
+CLEATE 学生 (
+  学籍番号    CHAR(8)       PRIMARY KEY,
+  名前        VARCHAR(30)   NOT NULL,
+  生年月日    DATE          NOT NULL,
+  血液型      CHAR(2)       CHECK (
+    血液型 IN ('A', 'B', 'O', 'AB') OR
+    血液型 IS NULL
+  ),
+  学部ID      CHAR(1)       REFERENCES 学部(ID)
+)
+
+--問題10-4
+存在しないキーを参照するデータを追加
+存在しないキーを参照するデータに更新
+参照されているデータを削除
+参照されているデータを更新
+
+--問題10-5
+BEGIN;
+UPDATE 学生
+   SET 学部ID = 'K'
+ WHERE 学部ID = 'R';
+
+INSERT INTO 学部
+     VALUES ('K', '工学部')
+
+DELETE FROM 学部
+ WHERE ID = 'R';
+COMMIT;
